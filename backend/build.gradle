@@ -29,6 +29,7 @@ dependencies {
 }
 
 appengine {
+
   downloadSdk = true
   appcfg {
     oauth2 = true
@@ -37,4 +38,5 @@ appengine {
     getClientLibsOnBuild = true
     getDiscoveryDocsOnBuild = true
   }
+    httpAddress = "0.0.0.0"
 }
