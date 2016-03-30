@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             String name = params[0].second;
 
             try {
-                return myApiService.sayHi(name).execute().getData();
+                return myApiService.tellJoke().execute().getData();
             } catch (IOException e) {
                 return e.getMessage();
             }
