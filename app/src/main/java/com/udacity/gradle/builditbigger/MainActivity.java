@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Method called when user requests a joke
+     * It displays as a Toast
      * @param view
      */
     public void tellJoke(View view){
