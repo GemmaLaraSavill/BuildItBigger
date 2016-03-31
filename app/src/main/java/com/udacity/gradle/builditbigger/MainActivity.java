@@ -69,9 +69,8 @@ public class MainActivity extends AppCompatActivity {
      * Gets a joke from the java joke library
      * Passes the joke to the Android Joke Activity library
      * via an intent
-     * @param view
      */
-    public void launchJokeActivity(View view){
+    public void launchJokeActivity(){
         Intent intent = new Intent(this, JokeActivity.class);
         Joker joker = new Joker();
         String joke = joker.getAJoke();
@@ -127,9 +126,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        /**
+         * Shows the joke to the user when task finished
+         * @param result
+         */
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+            launchJokeActivity();
         }
     }
 
