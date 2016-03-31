@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -82,16 +81,16 @@ public class MainActivity extends AppCompatActivity {
      * Starts a task to receive a joke from the Java Library via a GCE module
      */
     public void startJokeRetreivalTask(View view) {
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Gemma"));
+        new GetJokeAsyncTask().execute();
     }
 
 
-    class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+    class GetJokeAsyncTask extends AsyncTask<Void, Void, String> {
 
         private Context context;
 
         @Override
-        protected String doInBackground(Pair<Context, String>... params) {
+        protected String doInBackground(Void... params) {
             if(myApiService == null) {  // Only do this once
                 MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                         new AndroidJsonFactory(), null)
@@ -116,8 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 myApiService = builder.build();
             }
 
-            context = params[0].first;
-            String name = params[0].second;
 
             try {
                 return myApiService.tellJoke().execute().getData();
