@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
     }
 
+
+
     /**
      * Gets a joke from the java joke library
      * Passes the joke to the Android Joke Activity library

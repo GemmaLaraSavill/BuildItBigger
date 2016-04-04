@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 
 
 /**
- * A placeholder fragment containing a simple view.
+ * Created by Gemma S. Lara Savill on 04/04/2016.
+ * A simple fragment
  */
 public class PaidFragment extends Fragment {
 
