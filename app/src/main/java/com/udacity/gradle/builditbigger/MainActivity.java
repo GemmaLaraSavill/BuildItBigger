@@ -76,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
      * Starts a task to receive a joke from the Java Library via a GCE module
      */
     public void startJokeRetreivalTask(View view) {
-
-        new GetJokeAsyncTask().execute(this);
+        GetJokeAsyncTask loadJokeTask = new GetJokeAsyncTask();
+        loadJokeTask.setContext(this);
+        loadJokeTask.execute(this);
     }
 
 

@@ -52,6 +52,8 @@ public class FreeFragment extends Fragment {
                 requestNewInterstitial();
                 new GetJokeAsyncTask().execute(getActivity());
             }
+
+
         });
 
         requestNewInterstitial();
