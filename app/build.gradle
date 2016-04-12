@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+
+    defaultConfig {
+        applicationId "com.udacity.gradle.builditbigger"
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+//        multiDexEnabled true
+        
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradel.builditbigger.free"
+        }
+        paid {
+            applicationId "com.udacity.gradel.builditbigger.paid"
+        }
+    }
+}
+
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile project(':javajokes')
+    compile project(':jokeactivity')
+    compile project(path: ':backend', configuration: 'android-endpoints')
+    // added for testing
+    androidTestCompile 'junit:junit:4.12'
+    androidTestCompile "org.mockito:mockito-core:1.+"
+    // Added for AdMob, don't import all play services, only the necessary ones, in this case ads
+    freeCompile 'com.google.android.gms:play-services-ads:8.4.0'
+}
+
+
+

@@ -2,7 +2,9 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.test.AndroidTestCase;
+
 import org.mockito.Mock;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,6 +22,11 @@ public class GetJokeAsyncTaskTest extends AndroidTestCase {
 
         aJoke = null;
         getJokeAsyncTaskTask = new GetJokeAsyncTask(){
+
+            @Override
+            protected void onPreExecute() {
+                // No need to setup the loading indicator
+            }
             @Override
             protected void onPostExecute(String joke){
                 //No need to launch intent, so override this method
@@ -36,11 +43,13 @@ public class GetJokeAsyncTaskTest extends AndroidTestCase {
             getJokeAsyncTaskTask.execute(mockContext);
             aJoke = getJokeAsyncTaskTask.get(10, TimeUnit.SECONDS);
             assertNotNull(aJoke);
+
         }catch (Exception e){
             // Default timeout for the GCM server is 20 seconds
             // here it is given 10 seconds
             // Make sure it is testing on an emulator or the device has access to the GCM IP
-            fail("Timed out");
+           fail("Timed out");
+//            fail("Exception "+e);
         }
     }
 }

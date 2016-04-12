@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:2.0.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,3 +17,27 @@ allprojects {
         jcenter()
     }
 }
+
+/**
+ * Configured Tesk Task
+ * Gradle task that:
+ * 1. Launches the GCE local development server
+ * 2. Runs tests
+ * 3. Shuts server down again
+ */
+task MyTestTask {
+    description = "Task that launches joke backend, runs all tests and then shuts down server"
+    group = "My custom tasks"
+//    doFirst {
+//        ":backend:appengineRun"
+//    }
+    dependsOn ":backend:appengineRun"
+
+    doLast{
+        println("Running tests")
+        ":app:connectedCheck"
+    }
+   MyTestTask.finalizedBy ":backend:appengineStop"
+}
+
+
