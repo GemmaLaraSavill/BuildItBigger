@@ -1,7 +1,7 @@
 # Build it Bigger
 
 In this project, I will create an app with multiple flavors that uses multiple libraries and Google Could Endpoints. 
-Developed as part of my [Android Developer Nanodegree](https://www.udacity.com/nanodegree) at [Udacity](https://www.udacity.com/nanodegree).
+Developed as part of my [Android Developer Nanodegree](https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801) at [Udacity](https://www.udacity.com/nanodegree).
 Was given the starter code in the [course repository](https://github.com/udacity/ud867/tree/master/FinalProject).
 
 ##What Will I Learn?
